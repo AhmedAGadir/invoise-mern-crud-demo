@@ -1,0 +1,62 @@
+CRUD
+filter, sort, - 1 server, 1 client
+2 way sorting
+search bar
+loads of grid stuff
+third party integration
+responsive columns
+Tests
+Deploy
+film video
+readme 
+
+
+
+
+
+
+Project todos 
+
+- front end next jus 
+- Decide what apis to use
+
+
+- MERN stack
+- Show off AG Grid skills
+- FREE JSON dataset which gets loaded into the grid from the database
+- Has images/avatars displayed in grid
+- Support CRUD operations
+- Support client side sorting
+- Support server side filtering
+- Have a search bar 
+- FREE Third party integration to enrich front end 
+- Needs to be cool
+
+
+
+- Initialise database
+- Build Grid 
+- Filtering and sorting 
+- Deploy with next tech
+- Tests 
+
+- responsive grid changing columns 
+- Pop up with crud options 
+- Add row on bottom? 
+- Shimmer card
+- Custom grid theme 
+- See AG grid docs, blogs, and HC for ideas to spice it up
+
+- styling with tailwind 
+- 3D animations 
+- Authentication 
+- 
+
+- have a button panel to change displayed currency
+
+- Have a reset button
+- figure out how to initialise database
+- Create readme 
+- Create video demoing project 
+
+

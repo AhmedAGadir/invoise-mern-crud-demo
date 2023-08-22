@@ -1,0 +1,9 @@
+.add-invoice {
+	cursor: pointer;
+	color: var(--purple600);
+	margin: 10px 0;
+}
+
+.add-invoice:hover {
+	color: var(--purple800);
+}

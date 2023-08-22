@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap");
+
+:root {
+	--purple100: hsl(260, 73%, 94%);
+	--purple200: hsl(260, 73%, 84%);
+	--purple300: hsl(260, 73%, 74%);
+	--purple400: hsl(260, 73%, 64%);
+	--purple500: hsl(260, 73%, 54%);
+	--purple600: hsl(260, 73%, 49%);
+	--purple700: hsl(260, 73%, 34%);
+	--purple800: hsl(260, 73%, 24%);
+	--purple900: hsl(260, 73%, 14%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Inter", sans-serif;
+}

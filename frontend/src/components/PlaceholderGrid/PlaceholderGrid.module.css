@@ -1,0 +1,18 @@
+:global(.card).placeholder-grid {
+	background-color: var(--purple600);
+	width: 100%;
+	max-height: 600px;
+	overflow-y: hidden;
+}
+
+.header {
+	width: 50%;
+}
+
+.row:not(.header-row) {
+	min-height: 75px;
+}
+
+.cell {
+	width: 100%;
+}

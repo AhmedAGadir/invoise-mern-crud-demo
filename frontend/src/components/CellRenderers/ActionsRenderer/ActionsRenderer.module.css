@@ -1,0 +1,17 @@
+.action-wrap {
+	display: flex;
+	justify-content: space-between;
+}
+.action {
+	display: inline-block;
+	cursor: pointer;
+	transition: 0.2s ease-in all;
+}
+
+.action:hover svg {
+	fill: var(--purple900);
+}
+
+.action svg {
+	fill: white;
+}
