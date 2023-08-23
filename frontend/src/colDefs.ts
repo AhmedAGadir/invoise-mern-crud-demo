@@ -7,7 +7,7 @@ import clsx from "clsx";
 import styles from "./colDef.module.css";
 
 export const getColDefs = (
-	addUser?: (user: User) => void,
+	addUser?: () => void,
 	updateUser?: (user: User) => void,
 	deleteUser?: (user: User) => void
 ): ColDef<User>[] => [
@@ -24,11 +24,13 @@ export const getColDefs = (
 		field: "issueDate",
 		headerClass: clsx("ag-right-aligned-header", styles["invoise-header"]),
 		cellClass: "ag-right-aligned-cell",
+		minWidth: 140,
 	},
 	{
 		field: "dueDate",
 		headerClass: clsx("ag-right-aligned-header", styles["invoise-header"]),
 		cellClass: "ag-right-aligned-cell",
+		minWidth: 140,
 	},
 	{
 		field: "amount",
@@ -40,11 +42,14 @@ export const getColDefs = (
 				currency: data?.currency || "USD",
 			});
 		},
+		minWidth: 125,
 	},
-	{ field: "status", cellRenderer: StatusRenderer },
+	{ field: "status", cellRenderer: StatusRenderer, minWidth: 105 },
 	{
 		headerName: "actions",
 		cellRenderer: ActionsRenderer,
 		cellRendererParams: { addUser, updateUser, deleteUser },
+		minWidth: 150,
+		maxWidth: 150,
 	},
 ];

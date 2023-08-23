@@ -10,7 +10,7 @@ import Image from "react-bootstrap/Image";
 import styles from "./Navbar.module.css";
 
 const MyNavbar = () => (
-	<NavBar bg="dark" data-bs-theme="dark" className="shadow-lg mb-6">
+	<NavBar className="shadow-lg mb-6">
 		<Container className="d-flex justify-content-between">
 			{/* logo */}
 			<NavBar.Brand href="#home">

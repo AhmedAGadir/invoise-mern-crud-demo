@@ -1,10 +1,11 @@
+import { memo } from "react";
 import { ICellRendererParams } from "ag-grid-community";
 import Image from "react-bootstrap/Image";
 import { User } from "../../../types";
 
 import styles from "./AvatarRenderer.module.css";
 
-const AvatarRenderer = (params: ICellRendererParams<User>) => (
+const AvatarRenderer = memo((params: ICellRendererParams<User>) => (
 	<div className={styles.avatar}>
 		<Image
 			src={params.value}
@@ -14,6 +15,6 @@ const AvatarRenderer = (params: ICellRendererParams<User>) => (
 			className="object-fit-cover"
 		/>
 	</div>
-);
+));
 
 export default AvatarRenderer;

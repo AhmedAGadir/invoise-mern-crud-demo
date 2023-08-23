@@ -11,6 +11,7 @@ const PlaceholderGrid = ({
 	return (
 		<div
 			className={clsx(
+				"bg-primary",
 				"container",
 				"card",
 				"d-flex",
@@ -19,19 +20,25 @@ const PlaceholderGrid = ({
 			)}
 		>
 			<div className={clsx("row", "placeholder-glow", styles["header-row"])}>
-				{Array.from({ length: columns }).map(() => (
-					<div className="col p-2">
+				{Array.from({ length: columns }).map((_, ind) => (
+					// shouldn't normally use index as key but nothing else to use here
+					<div className="col p-2" key={ind}>
 						<div className={clsx("placeholder", styles.header)}></div>
 					</div>
 				))}
 			</div>
-			{Array.from({ length: rows }).map(() => (
-				<div className={"row placeholder-glow"}>
+			{Array.from({ length: rows }).map((_, ind) => (
+				// shouldn't normally use index as key but nothing else to use here
+				<div
+					className={clsx(styles["variable-row"], "row", "placeholder-glow")}
+					key={ind}
+				>
 					<div className="col p-2">
 						<div className={clsx("placeholder", styles.cell)}></div>
 					</div>
-					{Array.from({ length: columns - 1 }).map(() => (
-						<div className="col p-2">
+					{Array.from({ length: columns - 1 }).map((_, ind) => (
+						// shouldn't normally use index as key but nothing else to use here
+						<div className="col p-2" key={ind}>
 							<div className={clsx("placeholder", styles.cell)}></div>
 						</div>
 					))}

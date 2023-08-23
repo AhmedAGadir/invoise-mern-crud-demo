@@ -1,3 +1,5 @@
+export type Status = "paid" | "pending" | "unpaid";
+
 export type User = {
 	_id: string;
 	name: string;
@@ -8,7 +10,7 @@ export type User = {
 	dueDate: string;
 	amount: number;
 	currency: string;
-	status: "unpaid" | "paid" | "pending";
+	status: Status;
 };
 
 export type IFormSubmitHandler = (data: User) => void;

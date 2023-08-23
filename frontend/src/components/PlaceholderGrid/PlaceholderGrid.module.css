@@ -1,5 +1,4 @@
 :global(.card).placeholder-grid {
-	background-color: var(--purple600);
 	width: 100%;
 	max-height: 600px;
 	overflow-y: hidden;
@@ -9,7 +8,7 @@
 	width: 50%;
 }
 
-.row:not(.header-row) {
+.variable-row {
 	min-height: 75px;
 }
 

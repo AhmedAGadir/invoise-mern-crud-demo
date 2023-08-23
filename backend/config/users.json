@@ -2,7 +2,7 @@
 	{
 		"name": "Andrea Piacquadio",
 		"email": "andrea.piacquadio@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630849/avatars/andrea-piacquadio.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630849/avatars/andrea-piacquadio.jpg",
 		"invoiceNumber": "INV-001",
 		"issueDate": "01/01/2023",
 		"dueDate": "01/15/2023",
@@ -13,7 +13,7 @@
 	{
 		"name": "Andrew Duberman",
 		"email": "andrew.dubermna@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630836/avatars/andrew-duberman.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630836/avatars/andrew-duberman.jpg",
 		"invoiceNumber": "INV-002",
 		"issueDate": "01/05/2023",
 		"dueDate": "02/05/2023",
@@ -24,7 +24,7 @@
 	{
 		"name": "Brad Closer",
 		"email": "brad.closer@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630853/avatars/brad-closer.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630853/avatars/brad-closer.jpg",
 		"invoiceNumber": "INV-003",
 		"issueDate": "02/01/2023",
 		"dueDate": "02/28/2023",
@@ -33,9 +33,20 @@
 		"status": "Paid"
 	},
 	{
+		"name": "Catarina Libuda",
+		"email": "catarina.libuda@example.com",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630850/avatars/catarina-libuda.jpg",
+		"invoiceNumber": "INV-009",
+		"issueDate": "03/18/2023",
+		"dueDate": "04/18/2023",
+		"amount": 720,
+		"currency": "GBP",
+		"status": "Pending"
+	},
+	{
 		"name": "Engin Akyurt",
 		"email": "engin.akyurt@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630836/avatars/engin-akyurt.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630836/avatars/engin-akyurt.jpg",
 		"invoiceNumber": "INV-004",
 		"issueDate": "02/15/2023",
 		"dueDate": "03/15/2023",
@@ -46,7 +57,7 @@
 	{
 		"name": "João Jesus",
 		"email": "joao.jesus@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630836/avatars/joao-jesus-1.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630836/avatars/joao-jesus-1.jpg",
 		"invoiceNumber": "INV-005",
 		"issueDate": "02/20/2023",
 		"dueDate": "03/10/2023",
@@ -57,7 +68,7 @@
 	{
 		"name": "Juan Gomez",
 		"email": "juan.gomez@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630848/avatars/juan-gomez.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630848/avatars/juan-gomez.jpg",
 		"invoiceNumber": "INV-006",
 		"issueDate": "03/01/2023",
 		"dueDate": "03/31/2023",
@@ -68,7 +79,7 @@
 	{
 		"name": "Masha Raymers",
 		"email": "masha.raymers@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630849/avatars/masha-raymers.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630849/avatars/masha-raymers.jpg",
 		"invoiceNumber": "INV-007",
 		"issueDate": "03/10/2023",
 		"dueDate": "04/10/2023",
@@ -79,7 +90,7 @@
 	{
 		"name": "Samantha Jamerson",
 		"email": "samantha.jamerson@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630848/avatars/samantha-jamerson.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630848/avatars/samantha-jamerson.jpg",
 		"invoiceNumber": "INV-008",
 		"issueDate": "03/15/2023",
 		"dueDate": "04/05/2023",
@@ -88,20 +99,9 @@
 		"status": "Paid"
 	},
 	{
-		"name": "Catarina Libuda",
-		"email": "catarina.libuda@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630850/avatars/catarina-libuda.jpg",
-		"invoiceNumber": "INV-009",
-		"issueDate": "03/18/2023",
-		"dueDate": "04/18/2023",
-		"amount": 720,
-		"currency": "GBP",
-		"status": "Pending"
-	},
-	{
 		"name": "Soohyun Tsuen",
 		"email": "soohyun.tsuen@example.com",
-		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/v1692630845/avatars/soohyun-tsuen.jpg",
+		"avatarUrl": "https://res.cloudinary.com/ahmedagadir/image/upload/w_100/v1692630845/avatars/soohyun-tsuen.jpg",
 		"invoiceNumber": "INV-010",
 		"issueDate": "04/01/2023",
 		"dueDate": "04/30/2023",

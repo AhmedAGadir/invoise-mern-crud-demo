@@ -1,62 +1,44 @@
-CRUD
-filter, sort, - 1 server, 1 client
-2 way sorting
-search bar
-loads of grid stuff
-third party integration
-responsive columns
-Tests
-Deploy
-film video
-readme 
+## still need to implement: 
+- SSRM
+- filter
+- sort
+- 2 way sort
+- external filter
+- search bar
+- 3rd party enrichment
+- tests
+- film
+- readme 
+
+- initialising db? how to go about not? not a good solution yet.
 
 
+## discussion points:
+- needed to reverse data in database to add timestamps, and then reverse back on the UI, 
+    the reason for this was so that whenever i query data i can sort by most recent timestamps
+    this allows newer rows to be at top which makes sense for an invoicing app 
+- wanted to implement things from refactoring UI book - shimmer card, empty page, text styling 
+    would have acc done more on the web design side e.g. form, responsive columns, date formatting 
+    but was pressed for time and this is more about showing off grid skills 
+-  make sure to compress images for performance
 
 
-
-
-Project todos 
-
-- front end next jus 
-- Decide what apis to use
-
-
-- MERN stack
-- Show off AG Grid skills
-- FREE JSON dataset which gets loaded into the grid from the database
-- Has images/avatars displayed in grid
-- Support CRUD operations
-- Support client side sorting
-- Support server side filtering
-- Have a search bar 
-- FREE Third party integration to enrich front end 
-- Needs to be cool
-
-
-
-- Initialise database
-- Build Grid 
-- Filtering and sorting 
-- Deploy with next tech
-- Tests 
-
-- responsive grid changing columns 
-- Pop up with crud options 
-- Add row on bottom? 
-- Shimmer card
-- Custom grid theme 
+## with more time:
+// AG Grid skills showcase 
+- pagination
 - See AG grid docs, blogs, and HC for ideas to spice it up
 
+// UX/web design practise 
+- image edits in modal -> avatar, saving on server etc.
+- date formating - 2 days overdue red, 1 week left, 1 month left useEffect
+- responsive columns
+- form UX
+
+// tech im curious about
+- nextjs 
 - styling with tailwind 
 - 3D animations 
+
+// backend practice
 - Authentication 
-- 
-
-- have a button panel to change displayed currency
-
-- Have a reset button
-- figure out how to initialise database
-- Create readme 
-- Create video demoing project 
-
-
+- Deploy ( must change network access https://cloud.mongodb.com/v2/64e13d0f7860ee7a5c60d63b#/security/network/accessList)

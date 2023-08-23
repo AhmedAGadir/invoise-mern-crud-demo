@@ -1,47 +1,49 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, 'Please enter a name'],
-    },
-    email: {
-        type: String,
-        required: [true, 'Please enter an email'],
-    },
-    avatarUrl: {
-        type: String,
-        required: [true, 'Please enter an avatarUrl'],
-    },
-    invoiceNumber: {
-        type: String,
-        required: [true, 'Please enter an invoiceNumber'],
-    },
-    issueDate: {
-        type: String,
-        required: [true, 'Please enter an issueDate'],
-    },
-    dueDate: {
-        type: String,
-        required: [true, 'Please enter a dueDate'],
-    },
-    amount: {
-        type: Number,
-        required: [true, 'Please enter an amount'],
-    },
-    currency: {
-        type: String,
-        required: [true, 'Please enter a currency'],
-    },
-    status: {
-        type: String,
-        required: [true, 'Please enter a status'],
-    },
-}, {
-    timeStamps: true,
-}
+const userSchema = mongoose.Schema(
+	{
+		name: {
+			type: String,
+			required: true,
+		},
+		email: {
+			type: String,
+			required: true,
+		},
+		avatarUrl: {
+			type: String,
+			required: true,
+		},
+		invoiceNumber: {
+			type: String,
+			required: true,
+		},
+		issueDate: {
+			type: String,
+			required: true,
+		},
+		dueDate: {
+			type: String,
+			required: true,
+		},
+		amount: {
+			type: Number,
+			required: true,
+		},
+		currency: {
+			type: String,
+			required: true,
+		},
+		status: {
+			type: String,
+			required: true,
+		},
+	},
+	{
+		timestamps: true,
+	}
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

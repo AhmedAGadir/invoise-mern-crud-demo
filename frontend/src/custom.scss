@@ -1,0 +1,19 @@
+:root {
+	--purple100: hsl(260, 73%, 94%);
+	--purple200: hsl(260, 73%, 84%);
+	--purple300: hsl(260, 73%, 74%);
+	--purple400: hsl(260, 73%, 64%);
+	--purple500: hsl(260, 73%, 54%);
+	--purple600: hsl(260, 73%, 49%);
+	--purple700: hsl(260, 73%, 34%);
+	--purple800: hsl(260, 73%, 24%);
+	--purple900: hsl(260, 73%, 14%);
+
+	--bs-primary-text-emphasis: var(--purple200);
+	--bs-primary-bg-subtle: var(--purple900);
+	--bs-primary-border-subtle: var(--purple600);
+}
+
+$primary: hsl(260, 73%, 49%);
+
+@import "~bootstrap/scss/bootstrap.scss";

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useMemo, useCallback } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { GridReadyEvent, ColDef } from "ag-grid-community";
 import { getColDefs } from "../../colDefs";
@@ -11,15 +11,18 @@ import styles from "./Grid.module.css";
 
 type GridProps = {
 	users: User[];
-    addUser: (user: User) => void;
-    updateUser: (user: User) => void;
-    deleteUser: (user: User) => void;
+	addUser: () => void;
+	updateUser: (user: User) => void;
+	deleteUser: (user: User) => void;
 };
 
 const Grid = ({ users, addUser, updateUser, deleteUser }: GridProps) => {
-	const colDefs = useMemo(() => getColDefs(addUser, updateUser, deleteUser), [addUser, updateUser, deleteUser]));
-    
-    const defaultColDef: ColDef = useMemo(() => {
+	const colDefs = useMemo(
+		() => getColDefs(addUser, updateUser, deleteUser),
+		[addUser, updateUser, deleteUser]
+	);
+
+	const defaultColDef: ColDef = useMemo(() => {
 		return {
 			flex: 1,
 			minWidth: 100,

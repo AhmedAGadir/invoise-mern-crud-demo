@@ -4,7 +4,6 @@ import clsx from "clsx";
 import styles from "./StatusRenderer.module.css";
 
 const StatusRenderer = (params: ICellRendererParams<User>) => {
-	console.log("params", params);
 	switch (params.value.toLowerCase()) {
 		case "paid":
 			return (
