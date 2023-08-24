@@ -17,6 +17,7 @@ const getUsers = asyncHandler(async (req, res) => {
 	const endRow = Number(endRowString);
 
 	// filter according to filterModel object
+	const createFilterAggregationPipeline = require("./utils/createFilterAggregationPipeline");
 	const aggregationPipeline = createFilterAggregationPipeline(filterModel);
 
 	const query = User.aggregate(aggregationPipeline);

@@ -42,6 +42,8 @@ const Grid = () => {
 		setFormData(null);
 	}, []);
 
+	const [firstDataFetched, setFirstDataFetched] = React.useState(false);
+
 	const userService = useMemo(() => createUserService(), []);
 
 	const dataSource = useMemo(
@@ -114,10 +116,6 @@ const Grid = () => {
 				});
 		}
 	}, [userService]);
-
-	// ive added this to demonstrate a potential solution for a slow loading grid
-	// for some reason placeholder elements make loading feel more bearable to users
-	const [firstDataFetched, setFirstDataFetched] = React.useState(false);
 
 	const colDefs = useMemo(
 		() => getColDefs(dataSource, updateUser, deleteUser),

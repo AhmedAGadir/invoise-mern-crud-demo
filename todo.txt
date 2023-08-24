@@ -1,7 +1,6 @@
 ## still need to implement: 
 - 3rd party enrichment
 - test backend more
-- film
 - readme 
 
 - initialising db? how to go about not? not a good solution yet.
