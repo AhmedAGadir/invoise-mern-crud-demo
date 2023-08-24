@@ -14,15 +14,11 @@ const connectDB = async () => {
 	}
 };
 
-const initUsersCollection = async () => {
-	const users = require("./users.json");
-	const User = require("../models/userModel");
-	await User.deleteMany({});
-	await User.insertMany(users);
-	console.log("Users collection initialised".yellow);
+const closeDB = async () => {
+	await mongoose.connection.close();
 };
 
 module.exports = {
 	connectDB,
-	initUsersCollection,
+	closeDB,
 };

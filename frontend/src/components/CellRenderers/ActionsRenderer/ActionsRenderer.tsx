@@ -10,15 +10,14 @@ import styles from "./ActionsRenderer.module.css";
 
 const ActionsRenderer = (
 	params: ICellRendererParams<User> & {
-		addUser?: () => void;
-		updateUser?: (user: User) => void;
-		deleteUser?: (user: User) => void;
+		updateUser: (user: User) => void;
+		deleteUser: (user: User) => void;
 	}
 ) => {
 	const user = params.data as User;
 	return (
 		<div className={styles["action-wrap"]}>
-			<span className={styles.action} onClick={() => params.updateUser?.(user)}>
+			<span className={styles.action} onClick={() => params.updateUser(user)}>
 				<BsPencilSquare size={18} />
 			</span>
 			<span
@@ -29,7 +28,7 @@ const ActionsRenderer = (
 			>
 				<BsFillEyeFill size={18} />
 			</span>
-			<span className={styles.action} onClick={() => params.deleteUser?.(user)}>
+			<span className={styles.action} onClick={() => params.deleteUser(user)}>
 				<BsFillTrash3Fill size={18} />
 			</span>
 		</div>

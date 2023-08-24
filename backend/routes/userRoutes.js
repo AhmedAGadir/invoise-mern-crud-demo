@@ -7,6 +7,7 @@ const {
 	deleteUser,
 	deleteUsers,
 	resetUsers,
+	getValues,
 } = require("../controllers/userController");
 
 router.get("/", getUsers);
@@ -20,5 +21,7 @@ router.delete("/:id", deleteUser);
 router.delete("/", deleteUsers);
 
 router.get("/reset", resetUsers);
+
+router.get("/values/:field", getValues);
 
 module.exports = router;

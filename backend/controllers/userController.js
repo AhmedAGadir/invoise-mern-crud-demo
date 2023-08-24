@@ -5,8 +5,47 @@ const User = require("../models/userModel");
 // @route GET /api/users
 // @access Public
 const getUsers = asyncHandler(async (req, res) => {
-	const users = await User.find({}).sort({ createdAt: -1 });
-	res.status(200).json(users);
+	console.log(`[getUsers] req.query: ${JSON.stringify(req.query)}`.bgMagenta);
+
+	const {
+		startRow: startRowString,
+		endRow: endRowString,
+		filterModel = {},
+		sortModel = [],
+	} = req.query;
+	const startRow = Number(startRowString);
+	const endRow = Number(endRowString);
+
+	// filter according to filterModel object
+	const aggregationPipeline = createFilterAggregationPipeline(filterModel);
+
+	const query = User.aggregate(aggregationPipeline);
+
+	// sort according to sortModel array
+	if (sortModel.length === 0) {
+		// reverse array as default sort is by createdAt desc
+		query.sort({ createdAt: -1 });
+	} else {
+		// support multiple sort
+		const sortObject = {};
+		sortModel.forEach((sort) => {
+			sortObject[sort.colId] = sort.sort === "asc" ? 1 : -1;
+		});
+		query.sort(sortObject);
+	}
+
+	try {
+		const users = await query
+			.skip(startRow)
+			.limit(endRow - startRow)
+			.exec();
+
+		res.json({ rowData: users });
+	} catch (error) {
+		console.log(`[getUsers] error: ${error.message}`.red.bold);
+		res.status(500);
+		throw new Error(error.message);
+	}
 });
 
 // @desc Set user
@@ -41,12 +80,6 @@ const setUser = asyncHandler(async (req, res) => {
 		status: req.body.status,
 	});
 
-	console.log(
-		`[setUser] timstamp: ${user.createdAt}, user created: ${JSON.stringify(
-			user
-		)}`.bgMagenta.bold
-	);
-
 	res.status(200).json(user);
 });
 
@@ -74,10 +107,6 @@ const deleteUser = asyncHandler(async (req, res) => {
 		res.status(404);
 		throw new Error("User not found");
 	}
-	console.log(
-		`[deleteUser] deleting user with id ${req.params.id}: `.red.bold,
-		JSON.stringify(user)
-	);
 
 	await User.findByIdAndDelete(req.params.id);
 	res.status(200).json({ id: req.params.id });
@@ -109,6 +138,17 @@ const resetUsers = asyncHandler(async (req, res) => {
 	res.status(200).json(users.reverse());
 });
 
+// @desc Get values
+// @route GET /api/users/values/:field
+// @access Public
+const getValues = asyncHandler(async (req, res) => {
+	const { field } = req.params;
+	const users = await User.find({}).sort({ [field]: 1 });
+	const values = users.map((user) => user[field]);
+	const uniqueValues = [...new Set(values)];
+	res.status(200).json(uniqueValues);
+});
+
 module.exports = {
 	getUsers,
 	setUser,
@@ -116,4 +156,5 @@ module.exports = {
 	deleteUser,
 	deleteUsers,
 	resetUsers,
+	getValues,
 };

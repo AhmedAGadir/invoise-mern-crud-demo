@@ -4,15 +4,10 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { IFormSubmitHandler, Status, User } from "../../types";
-import { currencies } from "../../currencies";
+import { IFormSubmitHandler, Status, StatusEnum, User } from "../../types";
 import { v4 as uuid } from "uuid";
 
-enum StatusEnum {
-	unpaid = "unpaid",
-	paid = "paid",
-	pending = "pending",
-}
+const currencies = ["USD", "EUR", "GBP", "CAD", "AUD", "JPY", "RUB"];
 
 interface UserFormProps {
 	data: User | null;
@@ -227,9 +222,9 @@ const UserForm = (props: UserFormProps) => {
 									value={statusForm}
 									onChange={(e) => setStatusForm(e.target.value as Status)}
 								>
-									<option value={StatusEnum.unpaid}>Unpaid</option>
-									<option value={StatusEnum.pending}>Pending</option>
-									<option value={StatusEnum.paid}>Paid</option>
+									<option value={StatusEnum.UNPAID}>unpaid</option>
+									<option value={StatusEnum.PENDING}>pending</option>
+									<option value={StatusEnum.PAID}>paid</option>
 								</Form.Select>
 							</Col>
 						</Form.Group>
@@ -237,7 +232,7 @@ const UserForm = (props: UserFormProps) => {
 						<div className="d-flex justify-content-end">
 							<Button
 								className="d-block mt-3"
-								variant={props.data === null ? "success" : "primary"}
+								variant={"primary"}
 								type="submit"
 							>
 								{props.data === null ? "Create" : "Save Changes"}

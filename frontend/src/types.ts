@@ -1,3 +1,9 @@
+export enum StatusEnum {
+	UNPAID = "unpaid",
+	PAID = "paid",
+	PENDING = "pending",
+}
+
 export type Status = "paid" | "pending" | "unpaid";
 
 export type User = {

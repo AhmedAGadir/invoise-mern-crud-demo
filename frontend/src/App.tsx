@@ -1,11 +1,11 @@
 import Layout from "./components/Layout/Layout";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Grid from "./components/Grid/Grid";
 
 import "./App.module.css";
 
 const App = () => (
 	<Layout>
-		<Dashboard />
+		<Grid />
 	</Layout>
 );
 

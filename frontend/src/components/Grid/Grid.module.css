@@ -8,7 +8,7 @@
 	height: 600px;
 }
 
-.ag-root-wrapper {
+:global(.ag-root-wrapper) {
 	border-radius: 5px;
 }
 

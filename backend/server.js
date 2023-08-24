@@ -1,6 +1,6 @@
 const express = require("express");
 const colors = require("colors");
-const { connectDB, initUsersCollection } = require("./config/db");
+const { connectDB } = require("./config/db");
 const errorHandler = require("./middleware/errorMiddleware");
 
 // Load environment variables
@@ -8,8 +8,6 @@ const env = require("dotenv").config();
 
 // Connect to database
 connectDB();
-// Initialise users collection
-// initUsersCollection();
 
 // Initialize express
 const app = express();

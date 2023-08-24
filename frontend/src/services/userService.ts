@@ -1,11 +1,21 @@
 import axios from "axios";
+import { IServerSideGetRowsRequest } from "ag-grid-community";
 import { User } from "../types";
+import qs from "qs";
 
 const URL = "api/users/";
 
-const getAllUsers = () =>
+type GetUserParams = Pick<
+	IServerSideGetRowsRequest,
+	"startRow" | "endRow" | "filterModel" | "sortModel"
+>;
+
+const getUsers = (params: GetUserParams) =>
 	axios
-		.get(URL)
+		.get(URL, {
+			params,
+			paramsSerializer: (params) => qs.stringify(params),
+		})
 		.then((response) => response.data)
 		.catch((error) => {
 			console.log(error);
@@ -39,7 +49,6 @@ const deleteUser = (user: User) =>
 			throw error;
 		});
 
-// method to delete all users
 const deleteAllUsers = () =>
 	axios
 		.delete(URL)
@@ -58,13 +67,35 @@ const resetUsers = () =>
 			throw error;
 		});
 
-const userService = {
-	getAllUsers,
+const getFilterValues = (field: string) => {
+	console.log("[getFilterValues] " + field);
+	return axios
+		.get(`${URL}values/${field}`)
+		.then((response) => response.data)
+		.catch((error) => {
+			console.log(error);
+			throw error;
+		});
+};
+
+export type UserService = {
+	getUsers: (params: GetUserParams) => Promise<{ rowData: User[] }>;
+	addUser: (user: User) => Promise<User>;
+	updateUser: (user: User) => Promise<User>;
+	deleteUser: (user: User) => Promise<string>;
+	deleteAllUsers: () => Promise<string>;
+	resetUsers: () => Promise<User[]>;
+	getFilterValues: (field: string) => Promise<string[]>;
+};
+
+const createUserService: () => UserService = () => ({
+	getUsers,
 	addUser,
 	updateUser,
 	deleteUser,
 	deleteAllUsers,
 	resetUsers,
-};
+	getFilterValues,
+});
 
-export default userService;
+export default createUserService;

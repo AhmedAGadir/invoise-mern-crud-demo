@@ -8,7 +8,7 @@
 		"dueDate": "01/15/2023",
 		"amount": 1500,
 		"currency": "USD",
-		"status": "Paid"
+		"status": "paid"
 	},
 	{
 		"name": "Andrew Duberman",
@@ -19,7 +19,7 @@
 		"dueDate": "02/05/2023",
 		"amount": 2700,
 		"currency": "EUR",
-		"status": "Unpaid"
+		"status": "unpaid"
 	},
 	{
 		"name": "Brad Closer",
@@ -30,7 +30,7 @@
 		"dueDate": "02/28/2023",
 		"amount": 650,
 		"currency": "GBP",
-		"status": "Paid"
+		"status": "paid"
 	},
 	{
 		"name": "Catarina Libuda",
@@ -41,7 +41,7 @@
 		"dueDate": "04/18/2023",
 		"amount": 720,
 		"currency": "GBP",
-		"status": "Pending"
+		"status": "pending"
 	},
 	{
 		"name": "Engin Akyurt",
@@ -52,7 +52,7 @@
 		"dueDate": "03/15/2023",
 		"amount": 900,
 		"currency": "EUR",
-		"status": "Unpaid"
+		"status": "unpaid"
 	},
 	{
 		"name": "João Jesus",
@@ -63,7 +63,7 @@
 		"dueDate": "03/10/2023",
 		"amount": 1800,
 		"currency": "USD",
-		"status": "Pending"
+		"status": "pending"
 	},
 	{
 		"name": "Juan Gomez",
@@ -74,7 +74,7 @@
 		"dueDate": "03/31/2023",
 		"amount": 1200,
 		"currency": "CAD",
-		"status": "Paid"
+		"status": "paid"
 	},
 	{
 		"name": "Masha Raymers",
@@ -85,7 +85,7 @@
 		"dueDate": "04/10/2023",
 		"amount": 3100,
 		"currency": "AUD",
-		"status": "Unpaid"
+		"status": "unpaid"
 	},
 	{
 		"name": "Samantha Jamerson",
@@ -96,7 +96,7 @@
 		"dueDate": "04/05/2023",
 		"amount": 550,
 		"currency": "USD",
-		"status": "Paid"
+		"status": "paid"
 	},
 	{
 		"name": "Soohyun Tsuen",
@@ -107,6 +107,6 @@
 		"dueDate": "04/30/2023",
 		"amount": 2000,
 		"currency": "JPY",
-		"status": "Unpaid"
+		"status": "unpaid"
 	}
 ]

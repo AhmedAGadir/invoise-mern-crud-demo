@@ -4,7 +4,7 @@ import clsx from "clsx";
 import styles from "./StatusRenderer.module.css";
 
 const StatusRenderer = (params: ICellRendererParams<User>) => {
-	switch (params.value.toLowerCase()) {
+	switch (params.value) {
 		case "paid":
 			return (
 				<span
@@ -15,7 +15,7 @@ const StatusRenderer = (params: ICellRendererParams<User>) => {
 						styles.statusBadge
 					)}
 				>
-					Paid
+					paid
 				</span>
 			);
 		case "pending":
@@ -28,7 +28,7 @@ const StatusRenderer = (params: ICellRendererParams<User>) => {
 						styles.statusBadge
 					)}
 				>
-					Pending
+					pending
 				</span>
 			);
 		case "unpaid":
@@ -41,7 +41,7 @@ const StatusRenderer = (params: ICellRendererParams<User>) => {
 						styles.statusBadge
 					)}
 				>
-					Unpaid
+					unpaid
 				</span>
 			);
 		default:

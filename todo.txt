@@ -1,30 +1,24 @@
 ## still need to implement: 
-- SSRM
-- filter
-- sort
-- 2 way sort
-- external filter
-- search bar
 - 3rd party enrichment
-- tests
+- test backend more
 - film
 - readme 
 
 - initialising db? how to go about not? not a good solution yet.
 
-
 ## discussion points:
+- go through requirements one by one on UI, then in code
 - needed to reverse data in database to add timestamps, and then reverse back on the UI, 
     the reason for this was so that whenever i query data i can sort by most recent timestamps
     this allows newer rows to be at top which makes sense for an invoicing app 
-- wanted to implement things from refactoring UI book - shimmer card, empty page, text styling 
-    would have acc done more on the web design side e.g. form, responsive columns, date formatting 
-    but was pressed for time and this is more about showing off grid skills 
 -  make sure to compress images for performance
+- multiple sorting is supported: demonstrate with John and Jane Doe
 
 
 ## with more time:
 // AG Grid skills showcase 
+- persist grid state
+- datepicker filter
 - pagination
 - See AG grid docs, blogs, and HC for ideas to spice it up
 
@@ -33,6 +27,8 @@
 - date formating - 2 days overdue red, 1 week left, 1 month left useEffect
 - responsive columns
 - form UX
+- handle error states
+- search bar
 
 // tech im curious about
 - nextjs 
@@ -42,3 +38,5 @@
 // backend practice
 - Authentication 
 - Deploy ( must change network access https://cloud.mongodb.com/v2/64e13d0f7860ee7a5c60d63b#/security/network/accessList)
+
+
