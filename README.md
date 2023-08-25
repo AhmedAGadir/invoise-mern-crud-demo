@@ -2,6 +2,8 @@
 
 To get started, check out the [Getting Started](gettingStarted.md).
 
+![App Screenshot](https://raw.githubusercontent.com/AhmedAGadir/invoise-mern-crud-demo/main/screenshot.png?raw=true)
+
 ## Table of Contents
 
 1. [Requirements](#requirements)
@@ -72,7 +74,7 @@ To get started, check out the [Getting Started](gettingStarted.md).
 - **ExchangeRate-API**: For currency conversion
 - **TypeScript**: Strong typing and code maintainability
 - **Bootstrap, SASS, CSS modules**: UI styling and theming
-- **Jest & Enzyme**: Comprehensive frontend and backend testing
+- **Jest & Enzyme**: frontend and backend testing
 - **Axios**: For HTTP requests
 
 ### Architecture
