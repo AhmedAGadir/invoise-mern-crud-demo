@@ -72,7 +72,7 @@
 - **ExchangeRate-API**: For currency conversion
 - **TypeScript**: Strong typing and code maintainability
 - **Bootstrap, SASS, CSS modules**: UI styling and theming
-- **Jest & Enzyme**: Comprehensive frontend and backend testing
+- **Jest & Enzyme**: frontend and backend testing
 - **Axios**: For HTTP requests
 
 ### Architecture
