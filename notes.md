@@ -28,7 +28,7 @@
 
 ## Functional Explanation
 
-![App Screenshot](https://raw.githubusercontent.com/AhmedAGadir/invoise-mern-crud-demo/main/screenshot.png)
+![App Screenshot](https://raw.githubusercontent.com/AhmedAGadir/invoise-mern-crud-demo/main/screenshot.png?raw=true)
 
 ### Introduction
 
