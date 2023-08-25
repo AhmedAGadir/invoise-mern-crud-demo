@@ -140,28 +140,30 @@ To get started, check out the [Getting Started](gettingStarted.md).
 
 #### Custom Hook
 
-- useCurrencyExchange
+- The `useCurrencyExchange` hook provides a modular approach to managing currency selection across the app.
+- This hook maintains state variables for both the currently selected currency and the associated exchange rate.
+- Upon any changes to the selected currency via the `GridControls`, a `useEffect` hook triggers an API call to update the exchange rate to the most current data.
+- The newly fetched exchange rates are then supplied to the `colDefs`, utilizing value getters and formatters to dynamically convert invoice amounts to the selected currency.
 
 #### External Filters
 
-<!-- Explanation -->
+- Implements bidirectional data-binding.
+- When filters in the AG-Grid are changed, the filter model is preserved in the state, and the button selection is updated accordingly.
+- Upon updating the button selection (single-selection mode), an API call is made to set the AG-Grid filter model. This action triggers our custom event listener, which in turn updates the filter settings.
 
 #### Column Definitions
 
-<!-- Explanation -->
+- Utilizes the flexibility of AG-Grid's responsive columns to provide a highly customizable interface.
+- Incorporates methods for:
+  - `actions` column: user updating and deletion
+  - `amount` column: selected currency and exchange rate
+  - `status` column: server-side data source to populate filter values
 
 #### Testing
 
-<!-- Explanation -->
-
----
-
-## Alternative 3rd Party Integrations
-
-- Download to PDF
-- Data visualizations
-- Payments
-  - **Note**: Exchange rates seem the most relevant for this application
+- Frontend: tests to validate the server-side data source's functionality.
+- Backend: tests that specifically target the filter aggregation pipeline for enhanced reliability.
+- with more time would test the custom `useCurrencyExchange` hook and more.
 
 ---
 
@@ -185,6 +187,13 @@ To get started, check out the [Getting Started](gettingStarted.md).
 - Image edits in modal + saving on server etc
 - Form UX
 - Search bar
+
+## Alternative 3rd Party Integrations
+
+- Download to PDF
+- Data visualizations
+- Payments
+  - **Note**: Exchange rates seem the most relevant for this application
 
 ### Technologies I'm Interested In
 
