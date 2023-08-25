@@ -1,3 +1,5 @@
+import { Currency } from "./currencies";
+
 export enum StatusEnum {
 	UNPAID = "unpaid",
 	PAID = "paid",
@@ -15,8 +17,6 @@ export type User = {
 	issueDate: string;
 	dueDate: string;
 	amount: number;
-	currency: string;
+	currency: Currency;
 	status: Status;
 };
-
-export type IFormSubmitHandler = (data: User) => void;

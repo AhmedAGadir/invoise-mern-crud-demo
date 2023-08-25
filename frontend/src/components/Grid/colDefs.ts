@@ -1,4 +1,9 @@
-import { ColDef, SetFilterValuesFuncParams } from "ag-grid-community";
+import {
+	ColDef,
+	SetFilterValuesFuncParams,
+	ValueFormatterParams,
+	ValueGetterParams,
+} from "ag-grid-community";
 import { User } from "../../types";
 import AvatarRenderer from "../CellRenderers/AvatarRenderer/AvatarRenderer";
 import StatusRenderer from "../CellRenderers/StatusRenderer/StatusRenderer";
@@ -7,11 +12,15 @@ import { ServerSideDataSource } from "./serverSideDataSource";
 
 import clsx from "clsx";
 import styles from "./colDef.module.css";
+import { Currency } from "../../currencies";
+import { ExchangeRate } from "../../hooks/useCurrencyExchange";
 
 export const getColDefs = (
 	serverSideDataSource: ServerSideDataSource,
 	updateUser: (user: User) => void,
-	deleteUser: (user: User) => void
+	deleteUser: (user: User) => void,
+	selectedCurrency: Currency | undefined,
+	exchangeRate: ExchangeRate
 ): ColDef<User>[] => [
 	{
 		headerName: "",
@@ -60,12 +69,19 @@ export const getColDefs = (
 		minWidth: 125,
 		headerClass: clsx("ag-right-aligned-header", styles["invoise-header"]),
 		cellClass: "ag-right-aligned-cell",
-		valueFormatter: ({ value, data }) => {
-			return value.toLocaleString("en-US", {
-				style: "currency",
-				currency: data?.currency || "USD",
-			});
+		valueGetter: ({ data }: ValueGetterParams<User>) => {
+			if (!data) return;
+			if (!selectedCurrency) return data.amount;
+			const exchangeMultiplier = exchangeRate[data.currency] as number;
+			const exchangedAmount = data.amount / exchangeMultiplier;
+			// return to 2 decimal places
+			return Math.round(exchangedAmount * 100) / 100;
 		},
+		valueFormatter: ({ value, data }: ValueFormatterParams<User, number>) =>
+			value?.toLocaleString("en-US", {
+				style: "currency",
+				currency: selectedCurrency ?? (data?.currency || "USD"),
+			}) ?? "",
 		filter: "agNumberColumnFilter",
 		filterParams: {
 			filterOptions: ["equals", "lessThan", "greaterThan"],

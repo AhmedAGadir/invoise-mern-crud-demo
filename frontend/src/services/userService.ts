@@ -68,7 +68,6 @@ const resetUsers = () =>
 		});
 
 const getFilterValues = (field: string) => {
-	console.log("[getFilterValues] " + field);
 	return axios
 		.get(`${URL}values/${field}`)
 		.then((response) => response.data)

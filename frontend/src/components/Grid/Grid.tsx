@@ -7,14 +7,15 @@ import {
 	GridApi,
 } from "ag-grid-community";
 import { getColDefs } from "./colDefs";
-import { IFormSubmitHandler, User } from "../../types";
+import { User } from "../../types";
 import createServerSideDataSource from "./serverSideDataSource";
 import PlaceholderGrid from "../PlaceholderGrid/PlaceholderGrid";
-import UserForm from "../UserForm/UserForm";
+import UserForm, { IFormSubmitHandler } from "../UserForm/UserForm";
 import createUserService from "../../services/userService";
 import { Container } from "react-bootstrap";
 import GridControls from "../GridControls/GridControls";
 import { Status } from "../../types";
+import useCurrencyExchange from "../../hooks/useCurrencyExchange";
 
 import clsx from "clsx";
 import "ag-grid-enterprise";
@@ -25,6 +26,20 @@ import styles from "./Grid.module.css";
 const Grid = () => {
 	const gridApiRef = useRef<GridApi>();
 
+	// used to show the placeholder grid while the first data is being fetched
+	const [firstDataFetched, setFirstDataFetched] = React.useState(false);
+
+	// used to communicate with the backend when adding/updating/deleting users
+	const userService = useMemo(() => createUserService(), []);
+
+	// used to fetch gridRows and filter values from the backend
+	const serverSideDataSource = useMemo(
+		() =>
+			createServerSideDataSource(userService, () => setFirstDataFetched(true)),
+		[userService]
+	);
+
+	// used to show add/update user form
 	const [showForm, setShowForm] = useState(false);
 	const [formData, setFormData] = useState<User | null>(null);
 	const [formSubmitHandler, setFormSubmitHandler] =
@@ -41,16 +56,6 @@ const Grid = () => {
 		setFormSubmitHandler(null);
 		setFormData(null);
 	}, []);
-
-	const [firstDataFetched, setFirstDataFetched] = React.useState(false);
-
-	const userService = useMemo(() => createUserService(), []);
-
-	const dataSource = useMemo(
-		() =>
-			createServerSideDataSource(userService, () => setFirstDataFetched(true)),
-		[userService]
-	);
 
 	const addUser = useCallback(() => {
 		const add = (user: User) => {
@@ -117,9 +122,26 @@ const Grid = () => {
 		}
 	}, [userService]);
 
+	// use to display the invoice amounts in the grid in the selected currency
+	const { selectedCurrency, setSelectedCurrency, exchangeRate } =
+		useCurrencyExchange();
+
 	const colDefs = useMemo(
-		() => getColDefs(dataSource, updateUser, deleteUser),
-		[dataSource, deleteUser, updateUser]
+		() =>
+			getColDefs(
+				serverSideDataSource,
+				updateUser,
+				deleteUser,
+				selectedCurrency,
+				exchangeRate
+			),
+		[
+			serverSideDataSource,
+			deleteUser,
+			updateUser,
+			selectedCurrency,
+			exchangeRate,
+		]
 	);
 
 	const defaultColDef: ColDef = useMemo(
@@ -172,7 +194,6 @@ const Grid = () => {
 
 	const onGridFilterChange = useCallback(() => {
 		const filterModel = gridApiRef.current?.getFilterModel() || {};
-		console.log("filtermodel", filterModel);
 		setFilterModel(filterModel);
 	}, []);
 
@@ -184,6 +205,8 @@ const Grid = () => {
 				resetUsers={resetUsers}
 				selectedStatuses={selectedStatuses}
 				onStatusFilterChange={onStatusFilterChange}
+				selectedCurrency={selectedCurrency}
+				onCurrencyChange={setSelectedCurrency}
 				disabled={!firstDataFetched}
 			/>
 			<div
@@ -199,7 +222,7 @@ const Grid = () => {
 					onGridReady={onGridReady}
 					rowHeight={75}
 					rowModelType="serverSide"
-					serverSideDatasource={dataSource}
+					serverSideDatasource={serverSideDataSource}
 					getRowId={(params: GetRowIdParams<User>) => params.data._id}
 					onFilterChanged={onGridFilterChange}
 				/>

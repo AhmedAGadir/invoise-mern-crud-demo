@@ -4,10 +4,11 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { IFormSubmitHandler, Status, StatusEnum, User } from "../../types";
+import { Status, StatusEnum, User } from "../../types";
 import { v4 as uuid } from "uuid";
+import currencies, { Currency } from "../../currencies";
 
-const currencies = ["USD", "EUR", "GBP", "CAD", "AUD", "JPY", "RUB"];
+export type IFormSubmitHandler = (data: User) => void;
 
 interface UserFormProps {
 	data: User | null;
@@ -31,7 +32,7 @@ const UserForm = (props: UserFormProps) => {
 	let issueDate: string;
 	let dueDate: string;
 	let amount: number;
-	let currency: string;
+	let currency: Currency;
 	let status: Status;
 
 	if (props.data) {
@@ -61,7 +62,7 @@ const UserForm = (props: UserFormProps) => {
 			new Date().setMonth(new Date().getMonth() + 1)
 		).toLocaleDateString("en-GB");
 		amount = 100;
-		currency = "GBP";
+		currency = "GBP" as Currency;
 		status = "unpaid";
 	}
 
@@ -74,7 +75,7 @@ const UserForm = (props: UserFormProps) => {
 	const [issueDateForm, setIssueDateForm] = useState<string>(issueDate);
 	const [dueDateForm, setDueDateForm] = useState<string>(dueDate);
 	const [amountForm, setAmountForm] = useState<number>(amount);
-	const [currencyForm, setCurrencyForm] = useState<string>(currency);
+	const [currencyForm, setCurrencyForm] = useState<Currency>(currency);
 	const [statusForm, setStatusForm] = useState<Status>(status);
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -201,7 +202,8 @@ const UserForm = (props: UserFormProps) => {
 								<Form.Select
 									required
 									value={currencyForm}
-									onChange={(e) => setCurrencyForm(e.target.value)}
+									onChange={(e) => setCurrencyForm(e.target.value as Currency)}
+									htmlSize={10}
 								>
 									{currencies.map((currency) => (
 										<option value={currency} key={currency}>
