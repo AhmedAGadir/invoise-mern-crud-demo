@@ -1,7 +1,5 @@
 # Invoise MERN CRUD Application
 
-To get started, check out the [Getting Started](gettingStarted.md).
-
 ## Table of Contents
 
 1. [Requirements](#requirements)
@@ -29,6 +27,8 @@ To get started, check out the [Getting Started](gettingStarted.md).
 ---
 
 ## Functional Explanation
+
+![App Screenshot](./screenshot.png)
 
 ### Introduction
 

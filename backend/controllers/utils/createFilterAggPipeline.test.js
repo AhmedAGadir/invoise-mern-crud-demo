@@ -1,9 +1,9 @@
-const createFilterAggregationPipeline = require("./createFilterAggregationPipeline");
+const createFilterAggPipeline = require("./createFilterAggPipeline");
 
-describe("createFilterAggregationPipeline", () => {
+describe("createFilterAggPipeline", () => {
 	it("should return empty array if filterModel is empty", () => {
 		const filterModel = {};
-		const result = createFilterAggregationPipeline(filterModel);
+		const result = createFilterAggPipeline(filterModel);
 		expect(result).toEqual([]);
 	});
 	it("should filter text contains", () => {
@@ -14,7 +14,7 @@ describe("createFilterAggregationPipeline", () => {
 				filter: "a",
 			},
 		};
-		const result = createFilterAggregationPipeline(filterModel);
+		const result = createFilterAggPipeline(filterModel);
 		expect(result).toEqual([
 			{
 				$match: {
@@ -31,7 +31,7 @@ describe("createFilterAggregationPipeline", () => {
 				filter: "30",
 			},
 		};
-		const result = createFilterAggregationPipeline(filterModel);
+		const result = createFilterAggPipeline(filterModel);
 		expect(result).toEqual([
 			{
 				$match: {
@@ -48,7 +48,7 @@ describe("createFilterAggregationPipeline", () => {
 				filter: "30",
 			},
 		};
-		const result = createFilterAggregationPipeline(filterModel);
+		const result = createFilterAggPipeline(filterModel);
 		expect(result).toEqual([
 			{
 				$match: {
@@ -65,7 +65,7 @@ describe("createFilterAggregationPipeline", () => {
 				filter: "30",
 			},
 		};
-		const result = createFilterAggregationPipeline(filterModel);
+		const result = createFilterAggPipeline(filterModel);
 		expect(result).toEqual([
 			{
 				$match: {
@@ -81,7 +81,7 @@ describe("createFilterAggregationPipeline", () => {
 				values: ["30", "40"],
 			},
 		};
-		const result = createFilterAggregationPipeline(filterModel);
+		const result = createFilterAggPipeline(filterModel);
 		expect(result).toEqual([
 			{
 				$match: {
