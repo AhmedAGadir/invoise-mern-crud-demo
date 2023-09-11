@@ -2,7 +2,7 @@
 
 To get started, check out the [Getting Started](gettingStarted.md).
 
-![App Screenshot](https://raw.githubusercontent.com/AhmedAGadir/invoise-mern-crud-demo/main/screenshot.png?raw=true)
+![Invoise App Demo](https://github.com/AhmedAGadir/invoise-mern-crud-demo/main/mern-app-demo.gif)
 
 ## Table of Contents
 

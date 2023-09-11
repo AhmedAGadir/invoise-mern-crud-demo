@@ -71,11 +71,14 @@ export const getColDefs = (
 		cellClass: "ag-right-aligned-cell",
 		valueGetter: ({ data }: ValueGetterParams<User>) => {
 			if (!data) return;
-			if (!selectedCurrency) return data.amount;
-			const exchangeMultiplier = exchangeRate[data.currency] as number;
-			const exchangedAmount = data.amount / exchangeMultiplier;
-			// return to 2 decimal places
-			return Math.round(exchangedAmount * 100) / 100;
+			if (selectedCurrency && Object.keys(exchangeRate).length > 0) {
+				if (Object.keys(exchangeRate).length === 0) return null;
+				const exchangeMultiplier = exchangeRate[data.currency] as number;
+				const exchangedAmount = data.amount / exchangeMultiplier;
+				// return to 2 decimal places
+				return Math.round(exchangedAmount * 100) / 100;
+			}
+			return data.amount;
 		},
 		valueFormatter: ({ value, data }: ValueFormatterParams<User, number>) =>
 			value?.toLocaleString("en-US", {
