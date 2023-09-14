@@ -32,11 +32,6 @@ To get started, check out the [Getting Started](gettingStarted.md).
 
 ## Functional Explanation
 
-### Introduction
-
-- **App Overview**
-- **Invoise Logo and Headline**: Recently read a book on UX and aimed to improve the design.
-
 ### AG Grid SSRM Features
 
 - Dynamic data loading
