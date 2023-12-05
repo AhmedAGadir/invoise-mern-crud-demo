@@ -201,5 +201,5 @@ To get started, check out the [Getting Started](gettingStarted.md).
 - Database Initialization
 - More tests
 - Authentication
-- Deployment (must change network access https://cloud.mongodb.com/v2/64e13d0f7860ee7a5c60d63b#/security/network/accessList)
+- Deployment (must change network access https://cloud.mongodb.com/v2/foo#/security/network/accessList)
 - alternative Database / Backend Language + framework
